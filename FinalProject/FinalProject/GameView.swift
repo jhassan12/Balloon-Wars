@@ -146,20 +146,25 @@ struct Lives: View {
     @ObservedObject var game: GameScene
     
     var body: some View {
-        HStack {
+        ZStack {
             Text("Lives: ")
                 .font(Font.custom("Sharpshooter", size: 25))
                 .foregroundColor(.white)
                 .padding()
+                .offset(x: -20)
             
-            ForEach((0..<game.numberOfLives), id: \.self) { _ in
+            ForEach((0..<game.numberOfLives), id: \.self) { index in
                 Image("heart")
                     .resizable()
                     .frame(width: 25, height: 25)
+                    .offset(x: CGFloat(index*25 + index*5))
+                    .padding(50)
                     .transition(AnyTransition.opacity.animation(.linear(duration: 0.5)))
             }
+            .offset(x: 40)
         }
         .frame(width:300, height: 25)
+        .offset(x: -50)
        
     }
 }

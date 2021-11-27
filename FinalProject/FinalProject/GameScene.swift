@@ -120,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         timer.invalidate()
         
         for child in children {
-            if child.name == "player" || child.name == "enemy" {
+            if child.name == "player" || child.name == "enemy" || child.name == "bullet" {
                 child.removeFromParent()
             }
         }
@@ -348,6 +348,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             if currentTime.timeIntervalSinceReferenceDate - lastShotTime.timeIntervalSinceReferenceDate > 0.2 {
                 let bullet = SKSpriteNode(imageNamed: bullets[colorEncoding]!)
                 
+                bullet.name = "bullet"
                 bullet.size = CGSize(width: 15, height: 5)
                 bullet.zPosition = -1
                 bullet.position = player.position
@@ -391,7 +392,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     }
     
     func playSound(sound: SKAction) {
-        if !SceneMute.muted {
+        if !SceneMute.muted && !isGameOver {
             run(sound)
         }
     }
