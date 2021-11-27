@@ -293,8 +293,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             
             let dx = sin(angle - rad) * CGFloat(maxButtonMovement)
             let dy = cos(angle - rad) * CGFloat(maxButtonMovement)
-            
-            if (analog_base.frame.contains(location)) {
+                        
+            if (analog_button.frame.contains(location) && analog_base.frame.contains(location)) {
                 analog_button.position = location
             } else {
                 analog_button.position = CGPoint(x: analog_base.position.x - dx, y: analog_base.position.y + dy)
