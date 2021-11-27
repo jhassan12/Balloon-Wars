@@ -129,6 +129,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     }
     
     func initializeScene() {
+        numberOfLives = 5
+        
         setDifficulty()
         initializePlayer()
         setBackgroundImage()

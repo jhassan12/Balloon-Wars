@@ -212,7 +212,6 @@ struct PauseMenu: View {
                             Text("Exit")
                                 .font(Font.custom("Sharpshooter", size: 28))
                                 .padding()
-                                .foregroundColor(.red)
                         }
                         
                         Button(action: {
@@ -222,7 +221,6 @@ struct PauseMenu: View {
                             Text("New Game")
                                 .font(Font.custom("Sharpshooter", size: 28))
                                 .padding()
-                                .foregroundColor(.red)
                         }
                     }
                     
